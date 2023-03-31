@@ -24,23 +24,25 @@ Laravel version 9.52.4, PHP 8.0.2, Website server music simple heard music from 
 7. Run `npm run dev` or `npm run build`
 8. Run `php artisan serve` and visit the live development website
 
-Create file .env:
+<span style="color: blue"> Maybe another way: </span>
 
-cp .env.example .env
+1. Create file .env:
+<clipboard-copy for="blob-path">cp .env.example .env</clipboard-copy>
+
 Change value in .env file to according project order
 
-Install dependence:
+2. Install dependence:
 
 composer install
-Make laravel key:
+3. Make laravel key:
 
 php artisan key:generate
-Run migration to create table in database
+4. Run migration to create table in database:
 
 php artisan migrate
-Run jwt secret
+5. Run jwt secret:
 
 php artisan jwt:secret
-Run project
+6. Run project:
 
 php artisan serve
