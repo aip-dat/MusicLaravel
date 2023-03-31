@@ -27,22 +27,20 @@ Laravel version 9.52.4, PHP 8.0.2, Website server music simple heard music from 
 <span style="color: blue"> Maybe another way: </span>
 
 1. Create file .env:
-<clipboard-copy for="blob-path">cp .env.example .env</clipboard-copy>
-
-Change value in .env file to according project order
+    cp .env.example .env
+    Change value in .env file to according project order
 
 2. Install dependence:
-
-composer install
+    composer install
+    
 3. Make laravel key:
+    php artisan key:generate
 
-php artisan key:generate
 4. Run migration to create table in database:
+    php artisan migrate
 
-php artisan migrate
 5. Run jwt secret:
+    php artisan jwt:secret
 
-php artisan jwt:secret
 6. Run project:
-
-php artisan serve
+    php artisan serve
