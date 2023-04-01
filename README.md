@@ -4,7 +4,8 @@ Laravel version 9.52.4, PHP 8.0.2, Website server music simple heard music from 
 
 # Music Wave
 
-1. This is my study project @copyright.
+1. This is my team study project @copyright.
+2. This is have some private info.
 
 ## Development setup
 
@@ -22,3 +23,31 @@ Laravel version 9.52.4, PHP 8.0.2, Website server music simple heard music from 
 6. Run `npm install`
 7. Run `npm run dev` or `npm run build`
 8. Run `php artisan serve` and visit the live development website
+
+Maybe another way:
+
+1. Create file .env:
+
+    `cp .env.example .env`
+    
+    Change value in .env file to according project order
+
+2. Install dependence:
+
+    `composer install`
+    
+3. Make laravel key:
+
+    `php artisan key:generate`
+
+4. Run migration to create table in database:
+
+    `php artisan migrate`
+
+5. Run jwt secret:
+
+    `php artisan jwt:secret`
+
+6. Run project:
+
+    `php artisan serve`
