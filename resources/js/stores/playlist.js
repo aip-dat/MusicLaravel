@@ -1,19 +1,24 @@
-import {defineStore} from "pinia";
-import {computed, ref} from "vue";
+import { defineStore } from "pinia";
+import { computed, ref } from "vue";
 
-export const usePlaylistStore = defineStore('playlist', () => {
+export const usePlaylistStore = defineStore("playlist", () => {
+    // Define reactive variables for the playlist state
     const nowPlaying = ref(null);
     const list = ref([]);
     const position = ref(0);
 
+    // Define computed properties to check if the playlist can go back or forward
     const isBackable = computed(() => position.value > 0);
     const isNextable = computed(() => position.value < list.value.length - 1);
 
+    // Define functions to set and manipulate the playlist state
     function setList(trackList) {
         list.value = trackList;
         if (nowPlaying.value) {
-            const index = list.value.findIndex(t => t.id === nowPlaying.value.id);
-            if (index >= 0 ) {
+            const index = list.value.findIndex(
+                (t) => t.id === nowPlaying.value.id
+            );
+            if (index >= 0) {
                 position.value = index;
             }
         } else {
@@ -22,13 +27,16 @@ export const usePlaylistStore = defineStore('playlist', () => {
     }
 
     function play(track) {
-        const index = list.value.findIndex(t => t.id === track.id);
-        if (index >= 0 ) {
+        const index = list.value.findIndex((t) => t.id === track.id);
+        if (index >= 0) {
             position.value = index;
         } else {
             list.value = [];
         }
+
         nowPlaying.value = track;
+
+        console.log(nowPlaying.value.seconds);
     }
 
     function back() {
@@ -43,5 +51,15 @@ export const usePlaylistStore = defineStore('playlist', () => {
         }
     }
 
-    return { back, isBackable, isNextable, next, nowPlaying, position, play, setList };
-})
+    // Return the playlist state and functions as an object
+    return {
+        back,
+        isBackable,
+        isNextable,
+        next,
+        nowPlaying,
+        position,
+        play,
+        setList,
+    };
+});

@@ -31,11 +31,11 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::resource('tracks', TrackController::class)
-    ->only(['create', 'store'])
+    ->only(['create', 'store', 'index'])
     ->middleware(['auth', 'verified']);
 
 Route::resource('playlists', PlaylistController::class)
-    ->only(['create', 'store', 'show', 'edit', 'update', 'destroy'])
+    ->only(['create', 'store', 'show', 'edit', 'update', 'destroy', 'index'])
     ->middleware(['auth', 'verified']);
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

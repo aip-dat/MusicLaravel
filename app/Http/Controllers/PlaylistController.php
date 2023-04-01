@@ -17,6 +17,9 @@ class PlaylistController extends Controller
     public function index()
     {
         //
+        return Inertia::render('Playlist/Playlist', [
+            'tracks' => Track::with('user:id,name')->orderBy('title')->get(),
+        ]);
     }
 
     /**
